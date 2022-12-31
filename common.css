@@ -1,0 +1,34 @@
+@charset "utf-8";
+ 
+body { font-family: 'Noto Sans KR', sans-serif, '나눔고딕코딩'; background-color: rgba(0, 0, 0, 0.025); text-align: center; }
+input::placeholder { font-family: 'Noto Sans KR', sans-serif, '나눔고딕코딩'; }
+input:focus { outline: 1px solid rgb(82, 151, 255); }
+div { margin: 0 0 0 0; padding: 0 0 0 0;}
+ul { padding: 0 0 0 5px; margin: 0 0 0 0}                    
+ul li { list-style:none; padding: 0 0 3px 0;}
+form input { margin: 0 15px 0 7px; }  /* 라디오 버튼, 입력칸 */
+label span { font-size: 0.85em; position: relative; left: -12px; top: -1px;}
+.radio1 { position: relative; top: -1.2px; left: -3px; }
+.radio2 { display: inline-block; }
+.questionDiv { display: block; margin: 0 0 20px 0; }
+.questionDiv span { font-size: 0.85em; }
+.question { font-weight: 500; font-size: 0.93em; margin: 10px 0 3px 0; padding: 0 0 0 0; color:rgb(61, 61, 61)}
+
+#title { font-weight: 600; font-size: 1.3em; text-align: center; margin: 0 0 20px 0; color:rgb(255, 157, 29) }
+#title-preview { font-weight: 600; font-size: 1.3em; text-align: center; margin: 17px 0 0 -50px; color:rgb(255, 157, 29) }
+
+#contentsBorder { display: inline-block; width: 500px; height: 100%; margin: 20px 30px 0 70px; padding: 30px 15px 30px; border: 1px solid rgb(90, 90, 90) chrgb(90, 90, 90); background-color: #fff; box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.486); text-align:left; }
+#mainContents { margin: 0 0 0 30px; }
+#previewCode { display:inline-block; padding: 0 0 0 25px; width: 580px; height: 100%; margin: 0; border: 1px solid rgb(90, 90, 90) chorgb(90, 90, 90); background-color: #fff; box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.486); text-align: left; position: relative; top: -180px; }
+#outer { display: inline-block; margin: 0 auto;}
+
+@media ( max-width: 1255px ) {
+    #previewCode { top: 20px; }
+}
+
+button { background-color: rgb(86, 125, 255); color: #fff; border: 0px; padding: 5px; font-weight: 500; cursor: pointer; }
+#submit { margin: 5px 5px 0 0; }
+    
+.toolTip-text { font-size: 0.95em; visibility: hidden; width: 230px; height: 25px; background-color: rgb(82, 151, 255); padding: 7px 0 0 0; color: white; text-align: center; position: absolute; z-index: 1; left: 85px; box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.486); }
+.toolTip:hover .toolTip-text { visibility: visible; }
+
