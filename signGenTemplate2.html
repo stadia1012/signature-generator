@@ -15,9 +15,11 @@
             $("#radioCbt").on("click", function() {
                 var addrLang = $('input[name="addrLangName"]:checked').val();   // on click 밖에서 선언하면 x, 라디오 클릭마다 값 새로 가져오도록 지역변수 선언.
                 if ( addrLang == "addrKorVal" ) {
-                    document.getElementById('companyAddrIn').setAttribute('value', '경기도 김포시 월곶면 애기봉로 409번길 50');
+                    $(".addrClass").val("경기도 김포시 월곶면 애기봉로 409번길 50");
+                    // document.getElementById('companyAddrIn').setAttribute('value', '경기도 김포시 월곶면 애기봉로 409번길 50'); // 이 방식의 문제 -> 사용자 input 값 입력 후 초기화 안됨
                 } else {
-                    document.getElementById('companyAddrIn').setAttribute('value', '(10003) 50, Aegibong-ro 409beon-gil, Wolgot-myeon, Gimpo-si, Gyeonggi-do, R.O Korea');
+                    $(".addrClass").val("(10003) 50, Aegibong-ro 409beon-gil, Wolgot-myeon, Gimpo-si, Gyeonggi-do, R.O Korea");
+                    // document.getElementById('companyAddrIn').setAttribute('value', '(10003) 50, Aegibong-ro 409beon-gil, Wolgot-myeon, Gimpo-si, Gyeonggi-do, R.O Korea');
                 }
             });
             $("#radioCbtis").on("click", function() {
@@ -279,7 +281,7 @@
                                     <label class="radio3"><input id="addrEng" type="radio" name="addrLangName" value="addrEngVal" checked="checked"><span> 영문</span></label>
                                 </li>
                         </span>
-                        <input id='companyAddrIn' type='text' value="(10003) 50, Aegibong-ro 409beon-gil, Wolgot-myeon, Gimpo-si, Gyeonggi-do, R.O Korea" size="55" />
+                        <input id='companyAddrIn' class='addrClass' type='text' value="(10003) 50, Aegibong-ro 409beon-gil, Wolgot-myeon, Gimpo-si, Gyeonggi-do, R.O Korea" size="55" />
                     </div>
                     <div class="questionDiv">
                         <p class="question">8. 표시 URL</p>
