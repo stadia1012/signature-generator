@@ -69,22 +69,19 @@
                     if ( $('#warnEng').is(':checked') ) {
                         var secWarn_ = document.getElementById("secWarnHtml");
                         secWarn_.innerHTML = "<span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다. <br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.<br><br>The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender.&nbsp;</span>";
-                        return 0;
+                    } else {
+                        var secWarn_ = document.getElementById("secWarnHtml");
+                        secWarn_.innerHTML = "<span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다.<br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.</span>";
                     }
-                    var secWarn_ = document.getElementById("secWarnHtml");
-                    secWarn_.innerHTML = "<span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다.<br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.</span>";
-                    return 0;
                 } else if ( $('#warnEng').is(':checked') ) {
                     var secNotice_ = document.getElementById("secNotice"); 
                     secNotice_.innerHTML = "<span id='secNotice' style=\"font-family: '나눔고딕코딩', NanumGothicCoding,Sans-serif;\">Confidentiality Notice</span>";
                     var secWarn_ = document.getElementById("secWarnHtml"); 
                     secWarn_.innerHTML = "<span id=\'secWarnHtml\'>The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender.&nbsp;</span>";
-                    return 0;
                 } else {
                     alert("보안 문구는 반드시 지정해야 합니다.")
                     var secWarnNull_ = document.getElementById("secWarnNull"); 
                     secWarnNull_.innerHTML = "<span id='secWarnHtml'></span>";
-                    return 0;
                 }
                 
                 // ci
