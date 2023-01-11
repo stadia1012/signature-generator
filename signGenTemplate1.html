@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>메일 서명 생성툴 [양식1]</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="common.css" type="text/css">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -62,6 +63,8 @@
 
             $("#submit").on("click", function() {
                 // 경고문구
+                var secWarnNull_ = document.getElementById("secWarnNull"); 
+                secWarnNull_.innerHTML = "<span id='secWarnNull'><table style=\"padding: 25px; margin-top: 12pt; background-color: rgb(250, 250, 250);\"><tbody><tr><td style=\"width: 107px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt; vertical-align: top;\"><strong><span id='secNotice' style=\"font-family: '나눔고딕코딩', NanumGothicCoding,Sans-serif;\">기밀유지조항</span></strong></td><td style=\"width: 533px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 9pt; vertical-align: top;\"><strong><span style=\"font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;\"><span id='secWarnHtml'></span></span></strong></td></tr></tbody></table></span>";
                 if ( $('#warnKor').is(':checked') ) {
                     if ( $('#warnEng').is(':checked') ) {
                         var secWarn_ = document.getElementById("secWarnHtml");
@@ -70,13 +73,18 @@
                     }
                     var secWarn_ = document.getElementById("secWarnHtml");
                     secWarn_.innerHTML = "<span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다.<br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.</span>";
+                    return 0;
                 } else if ( $('#warnEng').is(':checked') ) {
+                    var secNotice_ = document.getElementById("secNotice"); 
+                    secNotice_.innerHTML = "<span id='secNotice' style=\"font-family: '나눔고딕코딩', NanumGothicCoding,Sans-serif;\">Confidentiality Notice</span>";
                     var secWarn_ = document.getElementById("secWarnHtml"); 
-                    secWarn_.innerHTML = "<span id='secWarnHtml'>The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender.&nbsp;</span>";
+                    secWarn_.innerHTML = "<span id=\'secWarnHtml\'>The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender.&nbsp;</span>";
+                    return 0;
                 } else {
                     alert("보안 문구는 반드시 지정해야 합니다.")
                     var secWarnNull_ = document.getElementById("secWarnNull"); 
-                    secWarnNull_.innerHTML = "";
+                    secWarnNull_.innerHTML = "<span id='secWarnHtml'></span>";
+                    return 0;
                 }
                 
                 // ci
@@ -143,6 +151,7 @@
             document.execCommand('copy');
             document.body.removeChild(textArea);
             alert('복사되었습니다.');
+            return 0;
         }
 
     </script>
@@ -157,7 +166,7 @@
                     <div class="questionDiv" style="position: relative;">
                         <p class="question" style="display: inline;">1. 소속 법인</p> <span class="toolTip"><img src="tip1.png" alt="tip" style=" position: relative; width: 16px; height: 16px; margin: 0 0 0 10px; top: 2.4px;">
                         <div class="toolTip-text">
-                            법인에 따라 주소지와 Ci 이미지가 선택됩니다.
+                            법인에 따라 주소지와 Ci 이미지가 입력 됩니다.
                         </div>
                         </span>
                         <ul>
@@ -175,34 +184,34 @@
 
                     <div class="questionDiv">
                         <p class="question">2. 이름</p>
-                        <span>&nbsp; 한글</span><input id='empNameKorIn' type='text'/><span>영문</span><input id='empNameEngIn' type='text'/>
+                        <div id="responseIn"><span class="question-sub">&nbsp; 한글</span><input id='empNameKorIn' type='text'/><span class="question-sub">영문</span><input id='empNameEngIn' type='text'/></div>
                     </div>
 
                     <div class="questionDiv">
                         <p class="question">3. 부서명</p>
-                        <span>&nbsp; 한글</span><input id='deptNameKorIn' type='text'/><span>영문</span><input id='deptNameEngIn' type='text'/>
+                        <div id="responseIn"><span class="question-sub">&nbsp; 한글</span><input id='deptNameKorIn' type='text'/><span class="question-sub">영문</span><input id='deptNameEngIn' type='text'/></div>
                     </div>
 
                     <div class="questionDiv">
                         <p class="question">4. 직급</p>
-                        <span>&nbsp; 한글</span><input id='rankKorIn' type='text'/><span>영문</span><input id='rankEngIn' type='text'/>
+                        <div id="responseIn"><span class="question-sub">&nbsp; 한글</span><input id='rankKorIn' type='text'/><span class="question-sub">영문</span><input id='rankEngIn' type='text'/></div>
                     </div>
 
                     <div class="questionDiv">
-                        <p class="question">5. 연락처</p>
-                        <span>&nbsp; Tel</span><input id='telNumberIn' type='text' /><span>Mobile</span><input id='mobileNumberIn' type='text' />
+                        <div id="responseIn"><p class="question">5. 연락처</p>
+                        <span class="question-sub">&nbsp; Tel</span><input id='telNumberIn' type='text' /><span class="question-sub">Mobile</span><input id='mobileNumberIn' type='text' /></div>
                     </div>
                     <div class="questionDiv">
-                        <p class="question">6. 웹메일 ID</p>
-                        <span>&nbsp; ID</span><input id='webMailIn' type='text' placeholder="webmail ID"/>
+                        <div id="responseIn"><p class="question">6. 웹메일 ID</p>
+                        <span class="question-sub">&nbsp; ID</span><input id='webMailIn' type='text' placeholder="webmail ID"/></div>
                     </div>
                     <div class="questionDiv">
                         <p class="question">7. 주소</p>
                         <span>
                             <ul>
                                 <li>
-                                    <label class="radio3"><input id="addrKor" type="radio" name="addrLangName" value="addrKorVal" checked="checked"><span> 한글</span></label>
-                                    <label class="radio3"><input id="addrEng" type="radio" name="addrLangName" value="addrEngVal"><span> 영문</span></label>
+                                    <label class="radio3"><input id="addrKor" type="radio" name="addrLangName" value="addrKorVal" checked="checked"><span class="question-sub"> 한글</span></label>
+                                    <label class="radio3"><input id="addrEng" type="radio" name="addrLangName" value="addrEngVal"><span class="question-sub"> 영문</span></label>
                                 </li>
                         </span>
                         <input id='companyAddrIn' class='addrClass' type='text' value="경기도 김포시 월곶면 애기봉로 409번길 50" size="55" />
@@ -223,7 +232,7 @@
 
         <div class='previewCodeClass' id='previewCode_1'>
             <p id="title-preview">서명 미리보기</p><span id="realHtml">
-            <br><div style="font-family: '돋움',Dotum; font-size: 10pt;" name="mp-default"><table style="width: 521pt;" width="521pt"><tbody><tr><td style="width: 410pt;"><div style="width: 410pt; padding-bottom: 5pt; vertical-align: bottom; border-bottom-color: rgb(240, 130, 0); border-bottom-width: 1px; border-bottom-style: solid; float: left;"><strong><span id="empNameKorHtml" style="letter-spacing: 9pt; font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 18pt;">김쎌바</span><span id="empNameEngHtml" style="color: rgb(153, 153, 153); font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 10pt;">Cellbio Kim</span></strong></div><div style="width: 380pt; padding-top: 5pt; vertical-align: top;"><span style="color: rgb(85, 85, 85); font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 10pt;"><br style="clear: both;"><strong><span id="deptNameEngHtml">IT Dev Part</span>&nbsp;<span id="deptNameKorHtml">IT개발파트</span>&nbsp;/ <span id="rankEngHtml">Manager</span>&nbsp;<span id="rankKorHtml">과장</span></strong></span></div><table style="margin: 20px 0px 0px; padding: 0px;"><tbody><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Tel</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="telNumberHtml">+82-2-6105-0000</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Mobile</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="mobileNumberHtml">+82-10-1234-5678</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Address</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="companyAddrHtml">경기도 김포시 월곶면 애기봉로 409번길 50</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>E-mail</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><span id="webMailHtml">cellbiokim</span>@cellbiotech.com</span></td></tr></tbody></table></td><td style="padding-top: 13pt; vertical-align: top; width: 139px;"><p align="right" style="text-align: right;"><a href="https://www.cellbiotech.com" target="_blank" style="margin: 0px; padding: 0px;"><img src="https://www.cellbiotech.com/images/common/webmail.cbt.ci.png" id="ciImgHtml" width="137" height="35" style="margin: 0px; padding: 0px;"><strong style="font-size: inherit; margin: 0px; padding: 0px; font-size: 13.3333px;"></a>&nbsp;</strong><br></p><p align="right" style="font-size: 13.3333px; text-align: right; padding: 0; margin: 0 0 7px 0"><a href="https://duolac.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src="https://www.cellbiotech.com/images/common/webmail.duolac.bi.png" width="105px" style="padding: 0px; margin: 0px;"></a></p><p align="right" style="text-align: right; padding: 0; margin: 7px 0"><a href="https://duolab.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src=" https://www.cellbiotech.com/images/common/webmail.duolab.bi.png" width="105px" style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px;"></a></p><p align="right" style="text-align: right; padding: 0; margin: 7px 0"><a href="https://lactoclear.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src=" https://www.cellbiotech.com/images/common/webmail.lactoclear.bi.png" width="105px" style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px;"></a></p></td></tr></tbody></table><span id="secWarnNull"><table style="padding: 25px; margin-top: 12pt; background-color: rgb(250, 250, 250);"><tbody><tr><td style="width: 107px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt; vertical-align: top;"><strong><span style="font-family: '나눔고딕코딩', NanumGothicCoding,Sans-serif;">기밀유지조항</span></strong></td><td style="width: 533px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 9pt; vertical-align: top;"><strong><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다.<br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.</span></span><span style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif;">&nbsp;&nbsp; </span></strong></td></tr></tbody></table></span><div style="font-family: 돋움,Dotum; font-size: 10pt;" name="mp-default"><p>&nbsp;</p></div></div></span>
+            <br><div style="font-family: '돋움',Dotum; font-size: 10pt;" name="mp-default"><table style="width: 521pt;" width="521pt"><tbody><tr><td style="width: 410pt;"><div style="width: 410pt; padding-bottom: 5pt; vertical-align: bottom; border-bottom-color: rgb(240, 130, 0); border-bottom-width: 1px; border-bottom-style: solid; float: left;"><strong><span id="empNameKorHtml" style="letter-spacing: 9pt; font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 18pt;">김쎌바</span><span id="empNameEngHtml" style="color: rgb(153, 153, 153); font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 10pt;">Cellbio Kim</span></strong></div><div style="width: 380pt; padding-top: 5pt; vertical-align: top;"><span style="color: rgb(85, 85, 85); font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif; font-size: 10pt;"><br style="clear: both;"><strong><span id="deptNameEngHtml">IT Dev Part</span>&nbsp;<span id="deptNameKorHtml">IT개발파트</span>&nbsp;/ <span id="rankEngHtml">Manager</span>&nbsp;<span id="rankKorHtml">과장</span></strong></span></div><table style="margin: 20px 0px 0px; padding: 0px;"><tbody><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Tel</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="telNumberHtml">+82-2-6105-0000</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Mobile</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="mobileNumberHtml">+82-10-1234-5678</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>Address</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong><span id="companyAddrHtml">경기도 김포시 월곶면 애기봉로 409번길 50</span></strong></span></td></tr><tr><td style="width: 100pt; height: 22px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><strong>E-mail</strong></span></td><td style="width: 280pt; height: 22px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 10pt;"><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><span id="webMailHtml">cellbiokim</span>@cellbiotech.com</span></td></tr></tbody></table></td><td style="padding-top: 13pt; vertical-align: top; width: 139px;"><p align="right" style="text-align: right;"><a href="https://www.cellbiotech.com" target="_blank" style="margin: 0px; padding: 0px;"><img src="https://www.cellbiotech.com/images/common/webmail.cbt.ci.png" id="ciImgHtml" width="137" height="35" style="margin: 0px; padding: 0px;"><strong style="font-size: inherit; margin: 0px; padding: 0px; font-size: 13.3333px;"></a>&nbsp;</strong><br></p><p align="right" style="font-size: 13.3333px; text-align: right; padding: 0; margin: 0 0 7px 0"><a href="https://duolac.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src="https://www.cellbiotech.com/images/common/webmail.duolac.bi.png" width="105px" style="padding: 0px; margin: 0px;"></a></p><p align="right" style="text-align: right; padding: 0; margin: 7px 0"><a href="https://duolab.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src=" https://www.cellbiotech.com/images/common/webmail.duolab.bi.png" width="105px" style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px;"></a></p><p align="right" style="text-align: right; padding: 0; margin: 7px 0"><a href="https://lactoclear.co.kr" target="_blank" style="margin: 0px; padding: 0px;"><img src=" https://www.cellbiotech.com/images/common/webmail.lactoclear.bi.png" width="105px" style="font-family: 나눔고딕코딩, NanumGothicCoding, sans-serif; font-size: inherit; font-weight: inherit; margin: 0px; padding: 0px;"></a></p></td></tr></tbody></table><span id="secWarnNull"><table style="padding: 25px; margin-top: 12pt; background-color: rgb(250, 250, 250);"><tbody><tr><td style="width: 107px; color: rgb(85, 85, 85); font-family: 'Nanum Gothic'; font-size: 10pt; vertical-align: top;"><strong><span id="secNotice" style="font-family: '나눔고딕코딩', NanumGothicCoding,Sans-serif;">기밀유지조항</span></strong></td><td style="width: 533px; color: rgb(119, 119, 119); font-family: 'Nanum Gothic'; font-size: 9pt; vertical-align: top;"><strong><span style="font-family: '나눔고딕코딩',NanumGothicCoding,Sans-serif;"><span id='secWarnHtml'>본 메일의 내용과 첨부된 자료에는 당사 기밀정보가 포함될 수 있습니다.<br>당사의 사전 승인 없이 본 메일과 첨부자료의 배포, 게시, 복사 또는 전달은 엄격히 금지됩니다.<br>또한, 본 메일을 열어보는 것은 본 기밀유지 조항에 동의한 것으로 간주됩니다.</span></span></strong></td></tr></tbody></table></span><div style="font-family: 돋움,Dotum; font-size: 10pt;" name="mp-default"><p>&nbsp;</p></div></div></span>
 
         </div>
     </div>
