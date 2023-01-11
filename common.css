@@ -2,12 +2,12 @@
  
 body { font-family: 'Noto Sans KR', '나눔고딕코딩'; background-color: rgba(0, 0, 0, 0.025); text-align: center; }
 table, td, tr, tbody, p, a, img, div, span, form { padding: 0; margin: 0; }
-input::placeholder { font-family: 'Noto Sans KR', sans-serif, '나눔고딕코딩'; font-size: 0.85em; margin: 0; padding: 0;}
+input::placeholder { font-family: 'Noto Sans KR', sans-serif, '나눔고딕코딩'; font-size: 0.85em; margin: 0; padding: 0; color:hsl(0, 0%, 65%)}
 input:focus { outline: 1px solid rgb(82, 151, 255); }
 div { margin: 0 0 0 0; padding: 0 0 0 0;}
 ul { padding: 0 0 0 5px; margin: 0 0 0 0}                    
 ul li { list-style:none; padding: 0 0 3px 0;}
-form input { display: inline-block; margin: 0 15px 0 7px; padding: 0; vertical-align: middle;}  /* 라디오 버튼, 입력칸 // 한글 입력 시 높이 변경되는 오류 lnline-block 및 vertical-align: middle로 해결함 */
+form input { display: inline-block; margin: -3px 15px 0 7px; padding: 0; vertical-align: middle;}  /* 라디오 버튼, 입력칸 // 한글 입력 시 높이 변경되는 오류 lnline-block 및 vertical-align: middle로 해결함 */
 label span { font-size: 0.85em; position: relative; left: -12px; top: -1px;}
 .radio1 { position: relative; top: -1.2px; left: -3px; }
 .radio2 { display: inline-block; }
