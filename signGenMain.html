@@ -7,11 +7,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     
     <style type = "text/css">
-        #contentsBorder { border: 1px solid rgb(90, 90, 90) chrgb(90, 90, 90); background-color: #fff; box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.486); text-align: center;}
-        .mainTitle { display: block; }
-        .template { display: inline-block;}
-        .subtitle { display: inline-block; }
-        a { text-decoration: none; color: rgb(61 61 61); }
+
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: rgba(0, 0, 0, 0.025); }
+
+        #contentsBorder { text-align: center; }
+        img { display: block; margin: auto; max-width: 100%; height: auto;}
+
+        #mainTitle { display: block; margin: 50px 0 40px 0; font-size: 25px; font-weight: 600; color:rgb(255, 157, 29) }
+
+        .template { padding: 10px; margin: 10px; display: inline-block; border: 1px solid #666666b6; width: 33%;  height: 50vh; text-align: center; overflow: hidden; background-color: #fff; box-sizing: border-box;  box-shadow: 1px 1px 1px 1px rgba(155, 155, 155, 0.486); border-radius: 1%; }
+        .template:hover { border: 3px solid #8e9fff; box-sizing: border-box; padding: 8px;}
+        .template:hover img { transform:scale(1.01); }
+        
+        #template1 { margin: 0 10px 0 0 }
+        #template2 { margin: 0; }
+
+        .subtitle { display: block; margin: 30px 0 0 0; font-size: 23px; font-weight: 600; color: #6b81ff;  }
+        .sub-subtitle { display: block; margin: 0 0 20px 0; font-size: 16px; font-weight: 500; color:#797979; }
+
+        .footer { display : inline-block; margin: 30vh 0 0 15px; }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,13 +33,32 @@
 
 <body>
     <div id="contentsBorder">
-        <span id="mainTitle">템플릿 선택</span>
+        <div id="mainTitle">메일 서명 생성툴</div>
+
         <div class="template" id="template1">
-            <span class="subitle"><a href="signGenTemplate1.html">template1</a></span>
+            <span class="subtitle">양식 1</span>
+            <span class="sub-subtitle">(기본)</span>
+            <img src="sample1.png" >
         </div>
+
         <div class="template" id="template2">
-            <span class="subtitle"><a href="signGenTemplate2.html">template2</a></span>
+            <span class="subtitle">양식 2</span>
+            <span class="sub-subtitle">(SNS URL 포함)</span>
+            <img src="sample2.png">
+        </div>
+
+        <div>
+            <a href="https://www.cellbiotech.com" target="_blank"><img class="footer" src="https://www.cellbiotech.com/images/common/webmail.cbt.ci_180.png"></a>
         </div>
     </div>
-        
+       
+    <script type="text/javascript">
+        $("#template1").on("click", function() {
+            location.href="signGenTemplate1.html"
+        })
+
+        $("#template2").on("click", function() {
+            location.href="signGenTemplate2.html"
+        })
+    </script>
 </body>
