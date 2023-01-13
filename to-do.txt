@@ -1,11 +1,11 @@
-- 양식2 태그 정리
-- 양식2 ci 추가
-- 양식1, 2 국가번호와 하이픈 추가
+img url 리스트
+
+https://www.cellbiotech.com/images/common/webmail.cbt.ci.png
+https://www.cellbiotech.com/images/common/webmail.cbtis.ci.jpe
 
 
 
-</span><span style="margin: 0px; padding: 0px; font-family: inherit; font-size: 10pt; font-weight: inherit; color: rgb(0, 0, 0); text-align: center; box-sizing: border-box;">
-
-color: rgb(51, 122, 183);
-color: rgb(51, 122, 183);
-color: rgb(70, 65, 217);
+width="105px"
+https://www.cellbiotech.com/images/common/webmail.duolac.bi.png
+https://www.cellbiotech.com/images/common/webmail.duolab.bi.png
+https://www.cellbiotech.com/images/common/webmail.lactoclear.bi.png

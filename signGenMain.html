@@ -13,19 +13,20 @@
         #contentsBorder { text-align: center; }
         img { display: block; margin: auto; max-width: 100%; height: auto;}
 
-        #mainTitle { display: block; margin: 50px 0 40px 0; font-size: 25px; font-weight: 600; color:rgb(255, 157, 29) }
+        #mainTitle { display: block; margin: 50px 0 0 0; font-size: 25px; font-weight: 600; color:rgb(253, 151, 18) }
+        #chooseNoti { display: block; margin: 10px 0 30px 0; font-size: 17px; font-weight: 400; color:rgb(136, 136, 136) }
 
-        .template { padding: 10px; margin: 10px; display: inline-block; border: 1px solid #666666b6; width: 33%;  height: 50vh; text-align: center; overflow: hidden; background-color: #fff; box-sizing: border-box;  box-shadow: 1px 1px 1px 1px rgba(155, 155, 155, 0.486); border-radius: 1%; }
-        .template:hover { border: 3px solid #8e9fff; box-sizing: border-box; padding: 8px;}
+        .template { padding: 10px; margin: 10px; display: inline-block; border: 1px solid #3a3434b6; width: 33%;  height: 50vh; text-align: center; overflow: hidden; background-color: #fff; box-sizing: border-box;  box-shadow: 1px 1px 1px 1px rgba(190, 190, 190, 0.486); border-radius: 1%; }
+        .template:hover { border: 3px solid #1c68ff; box-sizing: border-box; padding: 8px;}
         .template:hover img { transform:scale(1.01); }
         
         #template1 { margin: 0 10px 0 0 }
         #template2 { margin: 0; }
 
-        .subtitle { display: block; margin: 30px 0 0 0; font-size: 23px; font-weight: 600; color: #6b81ff;  }
+        .subtitle { display: block; margin: 30px 0 0 0; font-size: 23px; font-weight: 600; color: #1c68ff;  }
         .sub-subtitle { display: block; margin: 0 0 20px 0; font-size: 16px; font-weight: 500; color:#797979; }
 
-        .footer { display : inline-block; margin: 30vh 0 0 15px; }
+        .footer { display : inline-block; margin: 27vh 0 0 15px; }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,17 +35,18 @@
 <body>
     <div id="contentsBorder">
         <div id="mainTitle">메일 서명 생성툴</div>
+        <div id="chooseNoti">양식을 선택하세요.</div>
 
         <div class="template" id="template1">
             <span class="subtitle">양식 1</span>
-            <span class="sub-subtitle">(기본)</span>
-            <img src="sample1.png" >
+            <span class="sub-subtitle">(공식)</span>
+            <img src="./img/sample1.png" >
         </div>
 
         <div class="template" id="template2">
             <span class="subtitle">양식 2</span>
-            <span class="sub-subtitle">(SNS URL 포함)</span>
-            <img src="sample2.png">
+            <span class="sub-subtitle">(SNS URL 추가)</span>
+            <img src="./img/sample2.png">
         </div>
 
         <div>
