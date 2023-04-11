@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>메일 서명 생성툴</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <style type = "text/css">
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: rgba(0, 0, 0, 0.025); }
+        a { text-decoration: none; }
+
+        #contentsBorder { text-align: center; }
+        img { display: block; margin: auto; max-width: 100%; height: auto; transition: transform 1s; }
+        .guide-png { margin: 15px auto 15px; }
+
+        #mainTitle { display: block; margin: 50px 0 40px 0; font-size: 25px; font-weight: 600; color:rgb(253, 151, 18) }
+        #chooseNoti { display: block; margin: 10px 0 30px 0; font-size: 17px; font-weight: 400; color:rgb(136, 136, 136) }
+
+        .footer { margin: 0, auto; position: relative; z-index: 1; text-align: center;}
+        .footer p { font-size: 14px; color: rgb(80 80 80); margin: 10px 0 10px 0; }
+
+        .back-link {
+            position: absolute;
+            left: 16.7%;
+            top: 15px;
+            text-decoration: none;
+            font-size: 16px;
+            color: rgb(110, 110, 110);
+            cursor: pointer;
+        }
+        .back-link:hover {
+            color: rgba(110, 110, 110, 0.7);
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <a class="back-link" href="./signGenMain.html"><p>&lt; 이전으로</p></a>
+    <div id="contentsBorder">
+        <div id="mainTitle">메일 서명 적용 방법(그룹웨어)</div>
+        <img class="guide-png" src="./img/signGen-guide.png">
+        <div class="footer">
+            <a href="https://www.cellbiotech.com" target="_blank"><img src="https://www.cellbiotech.com/images/common/webmail.cbt.ci_180.png"></a>
+            <p>문의: IT개발파트 02-6105-7432 (내선 352)</p>
+        </div>
+    </div>
+    
+</body>

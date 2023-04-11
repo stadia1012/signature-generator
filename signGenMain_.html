@@ -8,8 +8,6 @@
     
     <style type = "text/css">
         body { font-family: 'Noto Sans KR', sans-serif; background-color: rgba(0, 0, 0, 0.025); }
-        a { text-decoration: none; }
-        a:link, a:visited, a:hover, a:active { color: rgb(110, 110, 110); }
 
         #contentsBorder { text-align: center; }
         img { display: block; margin: auto; max-width: 100%; height: auto; transition: transform 1s; }
@@ -47,20 +45,6 @@
 
         .footer { margin: 0, auto; position: absolute; bottom: 15px; left: 50%; transform: translate(-50%, 0); z-index: 1; }
         .footer p { font-size: 14px; color: rgb(80 80 80); margin: 10px 0 10px 0; }
-
-        #guide-link {
-            position: absolute;
-            right: 16.7%;
-            top: 15px;
-            font-size: 16px;
-            cursor: pointer;
-            line-height: 30px;
-        }
-        #guide-link:hover .guide-link-a {
-            color: rgba(110, 110, 110, 0.7);
-        }
-        #guide-link img { display: inline-block; height: 16px; width: 16px; margin-right: 8px; vertical-align: middle; margin-top: -3px; /*미세 조정*/ }
-        #guide-link a { vertical-align: middle; }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -68,7 +52,6 @@
 
 <body>
     <div id="contentsBorder">
-        <div id="guide-link"><a class="guide-link-a" href="./signGen-guide.html"><img src="./img/tip1.png">적용 가이드 바로가기</a></div>
         <div id="mainTitle">메일 서명 생성툴</div>
         <div id="chooseNoti">양식을 선택하세요.</div>
 
