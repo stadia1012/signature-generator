@@ -10,6 +10,8 @@ ul li { list-style:none; padding: 0 0 3px 0;}
 form input { display: inline-block; margin: -3px 15px 0 7px; padding: 0; vertical-align: middle;}  /* 라디오 버튼, 입력칸 // 한글 입력 시 높이 변경되는 오류 lnline-block 및 vertical-align: middle로 해결함 */
 #companyAddrIn { margin: -7px 15px 0 7px; }
 
+.back-link { text-align: left; text-decoration: none; display: block; width: max-content; top: 5px; position: relative;}
+a:link, a:visited, a:hover, a:active { color: rgb(110, 110, 110); }
 
 label span { font-size: 0.85em; position: relative; left: -12px; top: -1px;}
 .radio1 { position: relative; top: -1.2px; left: -3px; }

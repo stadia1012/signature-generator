@@ -9,6 +9,7 @@
     <style type = "text/css">
         body { font-family: 'Noto Sans KR', sans-serif; background-color: rgba(0, 0, 0, 0.025); }
         a { text-decoration: none; }
+        ul { list-style: none; }
         a:link, a:visited, a:hover, a:active { color: rgb(110, 110, 110); }
 
         #contentsBorder { text-align: center; }
@@ -17,7 +18,7 @@
         #mainTitle { display: block; margin: 50px 0 0 0; font-size: 25px; font-weight: 600; color:rgb(253, 151, 18) }
         #chooseNoti { display: block; margin: 10px 0 30px 0; font-size: 17px; font-weight: 400; color:rgb(136, 136, 136) }
 
-        .template { padding: 10px; margin: 10px; display: inline-block; width: 33%;  height: 50vh; text-align: center; overflow: hidden; background-color: #fff; box-sizing: border-box;  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); border-radius: 1%; position: relative; z-index: 2; transition: box-shadow 0.7s;  }
+        .template { padding: 10px; margin: 10px; display: inline-block; width: 33%;  height: 50vh; text-align: center; overflow: hidden; background-color: #fff; box-sizing: border-box;  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); border-radius: 1%; position: relative; z-index: 2; transition: box-shadow 0.7s; opacity: 0; }
         .template:hover { border: 3px solid #71a0ff; box-sizing: border-box; padding: 7px; box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);} /*padding으로 border 증가 상쇄*/
         .template:hover img { transform:scale(1.01); }
 
@@ -48,19 +49,36 @@
         .footer { margin: 0, auto; position: absolute; bottom: 15px; left: 50%; transform: translate(-50%, 0); z-index: 1; }
         .footer p { font-size: 14px; color: rgb(80 80 80); margin: 10px 0 10px 0; }
 
-        #guide-link {
+        #top-link {
             position: absolute;
             right: 16.7%;
             top: 15px;
+            float: left;
             font-size: 16px;
+        }
+        #top-link .link-dm { font-size: 14px; cursor: default;}
+        #guide-link {
+            display: inline-block;
             cursor: pointer;
             line-height: 30px;
         }
-        #guide-link:hover .guide-link-a {
-            color: rgba(110, 110, 110, 0.7);
-        }
+        #guide-link:hover .guide-link-a { color: rgba(110, 110, 110, 0.7); }
         #guide-link img { display: inline-block; height: 16px; width: 16px; margin-right: 8px; vertical-align: middle; margin-top: -3px; /*미세 조정*/ }
         #guide-link a { vertical-align: middle; }
+
+        #gw-link {
+            display: inline-block;
+            cursor: pointer;
+            line-height: 30px;
+            vertical-align: middle;
+            color: rgb(110, 110, 110);
+        }
+        .gw-list { visibility: hidden; z-index: 11; box-shadow: 0 2px 3px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.2); background-color: rgb(255, 255, 255); position: absolute;  margin: 0; padding: 0; text-align: left; width: max-content; height: max-content; padding: 3px 8px 3px 8px; cursor: default; border-radius: 3%}
+        .gw-list a { cursor: pointer; font-size: 15px;}
+        .gw-list a:hover { color: rgba(110, 110, 110, 0.7); }
+        #gw-link:hover span { color: rgba(110, 110, 110, 0.7); }
+        #gw-link:hover .gw-list { visibility: visible; }
+        #gw-link img { display: inline-block; height: 16px; width: 16px; margin-right: 8px; vertical-align: middle; margin-top: -3px; /*미세 조정*/ }
     </style>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -68,7 +86,16 @@
 
 <body>
     <div id="contentsBorder">
-        <div id="guide-link"><a class="guide-link-a" href="./signGen-guide.html"><img src="./img/tip1.png">그룹웨어 적용 가이드</a></div>
+        <div id="top-link">
+            <div id="guide-link"><a class="guide-link-a" href="./signGen-guide.html"><img src="./img/tip1.png">그룹웨어 적용 가이드</a></div><span class="link-dm">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <div id="gw-link">
+                <span>그룹웨어</span>
+                <ul class="gw-list">
+                    <li><a href="https://cbt.cellbiotech.com" target="_blank">쎌바이오텍</a></li>
+                    <li><a href="https://cbtis.cellbiotech.com" target="_blank">쎌바이오텍 인터내셔날</a></li>
+                </ul>
+            </div>
+        </div>
         <div id="mainTitle">메일 서명 생성툴</div>
         <div id="chooseNoti">양식을 선택하세요.</div>
 
@@ -104,12 +131,19 @@
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.from(".template", {
-            delay: 0.2,
-            scrollTrigger: {
+        // gsap.from(".template", {
+        //     delay: 0.2,
+        //     scrollTrigger: {
+        //         trigger: ".template",
+        //     },
+        //     duration: 0.8, opacity: 0, y: 60,
+        // });
+
+        gsap.fromTo(".template", {
+            duration: 0.8, opacity: 0, y: 60},
+            { delay: 0.2, scrollTrigger: {
                 trigger: ".template",
-            },
-            duration: 0.8, opacity: 0, y: 60,
-        });
+            }, opacity: 1, y: 0 }
+        );
     </script>
 </body>
